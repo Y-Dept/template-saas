@@ -29,6 +29,15 @@ module.exports = {
     filename: process.env.Project + `/${VERSION}/[name].js`,
     chunkFilename: process.env.Project + `/${VERSION}/[name].chunk.js`
   },
+  devServer: {
+    proxy: {
+      '/mockjs': {
+        target: 'http://rap.jd.com',
+        secure: false,
+        changeOrigin: true
+      }
+    }
+  },
   resolve: {
     alias: {
       'react/lib/Object.assign': 'object-assign'
