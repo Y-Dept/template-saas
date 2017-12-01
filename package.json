@@ -104,7 +104,6 @@
     "react-router-dom": "^4.1.1",
     "react-router-transition": "0.0.6",
     "universal-cookie": "^2.0.8",
-    "vic-common": "0.0.139",
     "whatwg-fetch": "^0.11.1"
   },
   "nodemonConfig": {
