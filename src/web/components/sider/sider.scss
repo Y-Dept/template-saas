@@ -1,0 +1,195 @@
+﻿.bm-menu-wrap {
+  z-index: 102 !important;
+  margin-top:59px;
+}
+.site-logo{
+  //background:#3bbabb url(../../images/logo.png) center no-repeat;
+  height:60px;
+  line-height:60px;
+  font-size:18px;
+  color:#fff;
+  padding-left:28px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.site-menu-tit{
+  height:60px;
+  line-height:60px;
+  color:#cfd0d0;
+  padding-left:30px;
+  border-bottom:1px solid #4e5169;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background: #1b3149;
+}
+.site-menu-cnt{
+  height:100%;
+  overflow:auto;
+  padding-top:0px;
+}
+
+/* Position and sizing of burger button */
+.bm-burger-button {
+  display: none;
+  position: fixed;
+  z-index: 101 !important;
+  width: 30px;
+  height: 24px;
+  left: 20px;
+  top: 20px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #373a47;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  display: none;
+  height: 29px !important;
+  width: 29px !important;
+  top:97px !important;
+  background: url(../../images/btn-close-menu.png) no-repeat;
+
+  .bm-cross{display: none;}
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #242433;
+  font-size: 14px;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #dddde8;
+  a{
+    color: #dddde8;
+    display:block;
+    font-size: 14px;
+    height: 48px;
+    line-height: 48px;
+    transition: all .5s;
+    padding-left: 54px;
+    font-size: 12px;
+    &:hover{
+      text-decoration: none;
+      color:#fff;
+      background: #0e0e16;
+    }
+  }
+  a.cur{
+    color:#fff;
+    background: #0e0e16;
+  }
+  .menu-group{ cursor: pointer; }
+
+  .menu-link-item{
+    font-size: 14px;
+    color: #dddde8;
+    padding:.2rem;
+    padding:17px 30px;
+    transition: all .5s;
+    height: auto;
+    line-height: 100%;   
+    text-align: left;    
+    background: none;    
+    &:hover{
+      text-decoration: none;
+      color:#fff;
+      background: #0e0e16;
+    }
+    &:after {
+      content:'';
+      display: table;
+      clear: both;
+    }
+    i{margin-right:10px;}
+  }
+
+  .menu-tit{
+    border-bottom:0;
+    color: #dddde8;
+    padding:.2rem;
+    padding:17px 30px;
+    transition: all .5s;
+    &:hover{
+      text-decoration: none;
+      color:#fff;
+      background: #0e0e16;
+    }
+    &:after {
+      content:'';
+      display: table;
+      clear: both;
+    }
+    i{margin-right:10px;}
+  }
+  .icon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    margin-right:10px;
+    float:left;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  // .menu-group:nth-child(1) {
+  //   .icon { background-image: url(../../images/icon-m1.png);}
+  // }
+  // .menu-group:nth-child(2) {
+  //   .icon { background-image: url(../../images/icon-m2.png); }
+  // }
+  // .menu-group:nth-child(3) {
+  //   .icon { background-image: url(../../images/icon-m3.png); }
+  // }
+  // .menu-group:nth-child(4) {
+  //   .icon { background-image: url(../../images/icon-m8.png); }
+  // }
+  // .menu-group:nth-child(5) {
+  //   .icon { background-image: url(../../images/icon-m4.png); }
+  // }
+  // .menu-group:nth-child(6) {
+  //   .icon { background-image: url(../../images/icon-m5.png); }
+  // }
+  // .menu-group:nth-child(7) {
+  //   .icon { background-image: url(../../images/icon-m8.png); }
+  // }
+  // .menu-group:nth-child(8) {
+  //   .icon { background-image: url(../../images/icon-m7.png); }
+  // }
+
+}
+
+
+
+.menu-cnt{
+  transition: all .3s ease-out;
+  overflow: hidden;
+  height: 0;
+  a:last-child {
+    border-bottom:0;
+  }
+}
+.menu-cnt.expanded{
+}
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}

@@ -1,0 +1,29 @@
+<template name="menuCnt">
+  <#if {item.type == 'item'}>
+    <router-Link key={item.index} to={item.link} onClick={selectMenu(item.index)} class="menu-item {store.sider.current == item.index ? ('cur', '')}">
+      {item.name}
+    </router-Link>
+  </#if>
+  <#if {item.type == 'group'}>
+    <div key={item.name} class="menu-group">
+      <div class="menu-tit" onClick={toggleMenu(item)}><ant-Icon type="{item.icon}" style="margin-right:10px;" />{item.name}</div>
+      <div class="menu-cnt {item.expanded ? ('expanded', '')}" style="height: {item.expanded ?(item.children.length * 48, 0)}px">
+        {generateMenu(item.children)}
+      </div>
+    </div>
+  </#if>
+  <#if {item.type == 'link-item'}>
+    <router-Link key={item.index} to={item.link} onClick={selectMenu(item.index)} class="menu-link-item {store.sider.current == item.index ? ('cur', '')}">
+        <ant-Icon type="{item.icon}" style="margin-right:10px;" />{item.name}
+    </router-Link>
+  </#if>
+</template>
+
+<template name="menu">
+  <burger-Menu pageWrapId="page-wrap" outerContainerId="outer-container" onStateChange={isMenuOpen} isOpen={store.sider.isOpen} width={200} noOverlay>
+    <!-- <div class="site-menu-tit"></div> -->
+    <div class="site-menu-cnt">
+      {menuCnt}
+    </div>
+  </burger-Menu>
+</template>

@@ -1,0 +1,105 @@
+import { types } from "mobx-state-tree";
+import { CommonStore } from "./commonStore";
+import HeaderStore from "./headerStore";
+import SiderStore from "./SiderStore";
+import Page1_1Store from "./pages/page1_1Store";
+import Page1_2Store from "./pages/page1_2Store";
+
+const RootStore = types.model("RootStore", {
+  common: types.optional(CommonStore, {}),
+
+  header: types.optional(HeaderStore, {
+    current: 0
+  }),
+
+  sider: types.optional(SiderStore, {
+    isOpen: false,
+    current: 'Page1_1',
+    menuData: [
+      {
+      type: 'group',
+      index: 'Menu1_1',
+      name: '一级菜单1',
+      expanded: false,
+      children: [{
+        type: 'link-item',
+        index: 'Menu2_1',
+        name: '总览',
+        expanded: false,
+        icon:'appstore-o',
+        link: '/Page1_1',
+        children: []
+      }, {
+        type: 'group',
+        index: 'Menu2_2',
+        name: '权限管理',
+        expanded: false,
+        icon:'idcard',
+        children: [
+          { type: 'item', level: 3, link: '/Page2_1', index: 'Page2_1', name: '用户管理' },
+          { type: 'item', level: 3, link: '/Page2_2', index: 'Page2_2', name: '群组管理' },
+          { type: 'item', level: 3, link: '/Page2_3', index: 'Page2_3', name: '角色管理' },
+          { type: 'item', level: 3, link: '/Page2_4', index: 'Page2_4', name: '组织管理' }
+        ]
+      },
+      {
+        type: 'link-item',
+        index: 'Menu2_3',
+        name: '用户中心',
+        expanded: false,
+        icon:'user',
+        link: '/Page3_1',
+        children: []
+      },
+      {
+        type: 'link-item',
+        index: 'Menu2_4',
+        name: '财务中心',
+        expanded: false,
+        icon:'area-chart',
+        link: '/Page4_1',
+        children: []
+      },
+      {
+        type: 'link-item',
+        index: 'Menu2_5',
+        name: '客服管理',
+        expanded: false,
+        icon:'phone',
+        link: '/Page5_1',
+        children: []
+      }
+    ]
+    }, {
+      type: 'group',
+      index: 'Menu1_2',
+      name: '一级菜单2',
+      expanded: false,
+      children: [{
+        type: 'group',
+        index: 'Menu2_3',
+        name: '二级菜单3',
+        expanded: false,
+        children: [
+          { type: 'item', level: 3, link: '/Page3_1', index: 'Page3_1', name: '页面3-1' },
+          { type: 'item', level: 3, link: '/Page3_2', index: 'Page3_2', name: '页面3-2' },
+        ]
+      }, {
+        type: 'group',
+        index: 'Menu2_4',
+        name: '二级菜单4',
+        expanded: false,
+        children: [
+          { type: 'item', level: 3, link: '/Page4_1', index: 'Page4_1', name: '页面4-1' },
+          { type: 'item', level: 3, link: '/Page4_2', index: 'Page4_2', name: '页面4-2' },
+        ]
+      }]
+    }]
+  }),
+
+  page1_1: types.optional(Page1_1Store, {}),
+  page1_2: types.optional(Page1_2Store, {}),
+
+});
+
+export default RootStore;
