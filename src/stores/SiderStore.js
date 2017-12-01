@@ -79,7 +79,7 @@ const SiderStore = types.model("SiderStore", {
         //初始化一级菜单
         let menu0 = self.menuData[0];
         if (href.trim() !== '') {
-          if(self.mapLevel3['/' + href.toLowerCase()]){
+          if (self.mapLevel3['/' + href.toLowerCase()]) {
             self.root.header.setCurrent(self.mapLevel3['/' + href.toLowerCase()].topMenuIndex);
           }
         } else if (menu0) {
@@ -110,14 +110,13 @@ const SiderStore = types.model("SiderStore", {
 
         if (href.trim() === '') {
           if (menu0) {
-            if(menu0.children[0].children[0]){
+            if (menu0.children[0].children[0]) {
               self.setCurrent(menu0.children[0].children[0].index);
-              // window.location.hash = '/' + self.current;
-              self.setMenuDataByIndex(true, menu0.children[0].index);
-            }else{
+            } else {
               self.setCurrent(menu0.children[0].index);
-              self.setMenuDataByIndex(true, menu0.children[0].index);
             }
+            window.location.hash = '/' + self.current;
+            self.setMenuDataByIndex(true, menu0.children[0].index);
           }
         } else {
           self.setCurrent(href);

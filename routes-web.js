@@ -3,6 +3,7 @@ import Bundle from './bundle'
 import { withRouter, Redirect } from 'react-router'
 import { Switch, Route } from 'react-router-dom';
 import { observer, Provider, inject } from 'mobx-react';
+import loadPage0_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page0_1/page0_1.js';
 import loadPage1_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_1/page1_1.js';
 import loadPage1_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_2/page1_2.js';
 import Header from './src/web/components/header';
@@ -11,9 +12,26 @@ import Sider from './src/web/components/sider';
 const HeaderWithRouter = withRouter(Header)
 const SiderWithRouter = withRouter(Sider)
 const loadBundles = {
+  loadPage0_1,
   loadPage1_1,
   loadPage1_2,
 };
+
+/**
+ * 页面0-1
+ */
+const Page0_1 = inject("store")(
+  observer(({ store }) => nj`
+    <${PageWrap}>
+      <${Bundle} load=${loadPage0_1} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Page0_1) => {
+          const Page0_1 = withRouter(_Page0_1)
+          return nj`<${Page0_1}/>`();
+        }}
+      </${Bundle}>
+    </${PageWrap}>
+  `())
+);
 
 /**
  * 页面1-1
@@ -61,7 +79,8 @@ const PageWrap = inject("store")(
 
 const routes = () => nj`
   <router-Switch>
-    <Route exact path='/' component=${Page1_1}/>
+    <Route exact path='/' component=${Page0_1}/>
+    <Route exact path='/Page0_1' component=${Page0_1} />
     <Route exact path='/Page1_1' component=${Page1_1} />
     <Route exact path='/Page1_2' component=${Page1_2} />
     <Redirect from='*' to='/'/>

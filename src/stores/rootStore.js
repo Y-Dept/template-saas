@@ -2,6 +2,7 @@ import { types } from "mobx-state-tree";
 import { CommonStore } from "./commonStore";
 import HeaderStore from "./headerStore";
 import SiderStore from "./SiderStore";
+import Page0_1Store from "./pages/page0_1Store";
 import Page1_1Store from "./pages/page1_1Store";
 import Page1_2Store from "./pages/page1_2Store";
 
@@ -23,11 +24,11 @@ const RootStore = types.model("RootStore", {
       expanded: false,
       children: [{
         type: 'link-item',
-        index: 'Menu2_1',
+        index: 'Page0_1',
         name: '总览',
         expanded: false,
         icon:'appstore-o',
-        link: '/Page1_1',
+        link: '/Page0_1',
         children: []
       }, {
         type: 'group',
@@ -36,10 +37,10 @@ const RootStore = types.model("RootStore", {
         expanded: false,
         icon:'idcard',
         children: [
-          { type: 'item', level: 3, link: '/Page2_1', index: 'Page2_1', name: '用户管理' },
-          { type: 'item', level: 3, link: '/Page2_2', index: 'Page2_2', name: '群组管理' },
-          { type: 'item', level: 3, link: '/Page2_3', index: 'Page2_3', name: '角色管理' },
-          { type: 'item', level: 3, link: '/Page2_4', index: 'Page2_4', name: '组织管理' }
+          { type: 'item', level: 3, link: '/Page1_1', index: 'Page1_1', name: '用户管理' },
+          { type: 'item', level: 3, link: '/Page1_2', index: 'Page1_2', name: '群组管理' },
+          { type: 'item', level: 3, link: '/Page1_3', index: 'Page1_3', name: '角色管理' },
+          { type: 'item', level: 3, link: '/Page1_4', index: 'Page1_4', name: '组织管理' }
         ]
       },
       {
@@ -48,7 +49,7 @@ const RootStore = types.model("RootStore", {
         name: '用户中心',
         expanded: false,
         icon:'user',
-        link: '/Page3_1',
+        link: '/Page2_1',
         children: []
       },
       {
@@ -57,7 +58,7 @@ const RootStore = types.model("RootStore", {
         name: '财务中心',
         expanded: false,
         icon:'area-chart',
-        link: '/Page4_1',
+        link: '/Page3_1',
         children: []
       },
       {
@@ -66,7 +67,7 @@ const RootStore = types.model("RootStore", {
         name: '客服管理',
         expanded: false,
         icon:'phone',
-        link: '/Page5_1',
+        link: '/Page4_1',
         children: []
       }
     ]
@@ -97,6 +98,7 @@ const RootStore = types.model("RootStore", {
     }]
   }),
 
+  page0_1: types.optional(Page0_1Store, {}),
   page1_1: types.optional(Page1_1Store, {}),
   page1_2: types.optional(Page1_2Store, {}),
 
