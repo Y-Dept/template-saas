@@ -6,6 +6,7 @@ import { observer, Provider, inject } from 'mobx-react';
 import loadPage0_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page0_1/page0_1.js';
 import loadPage1_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_1/page1_1.js';
 import loadPage1_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_2/page1_2.js';
+//{importLoadPage}//
 import Header from './src/web/components/header';
 import Sider from './src/web/components/sider';
 
@@ -15,6 +16,7 @@ const loadBundles = {
   loadPage0_1,
   loadPage1_1,
   loadPage1_2,
+  //{loadPage}//
 };
 
 /**
@@ -65,6 +67,8 @@ const Page1_2 = inject("store")(
   `())
 );
 
+//{pageComponent}//
+
 const PageWrap = inject("store")(
   observer(({ store, children }) => nj`
     <div>
@@ -83,6 +87,7 @@ const routes = () => nj`
     <Route exact path='/Page0_1' component=${Page0_1} />
     <Route exact path='/Page1_1' component=${Page1_1} />
     <Route exact path='/Page1_2' component=${Page1_2} />
+    <!--//{route}//-->
     <Redirect from='*' to='/'/>
   </router-Switch>
 `();
