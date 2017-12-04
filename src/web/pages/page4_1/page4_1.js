@@ -34,6 +34,7 @@ export default class page4_1 extends Component {
   }
 
   componentDidMount() {
+    this.onSearch()
   }
 
   @autobind

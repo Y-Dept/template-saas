@@ -2,6 +2,7 @@
   "name": "y-dept-template-saas",
   "version": "1.0.0",
   "description": "Y事业部-SAAS化平台框架",
+  "templateType": "single-page",
   "main": "app.js",
   "scripts": {
     "dev-web": "npm run server | cross-env Project=web webpack-dev-server --host 0.0.0.0 --inline --hot --progress",
@@ -82,7 +83,7 @@
     "array-from": "^2.1.1",
     "bundle-loader": "^0.5.5",
     "console-polyfill": "^0.3.0",
-    "echarts": "^3.6.2",
+    "echarts": "3.6.2",
     "es6-promise": "^4.1.0",
     "es6-weak-map": "^2.0.2",
     "flarej": "^0.1.6",
@@ -90,7 +91,7 @@
     "isomorphic-fetch": "^2.2.1",
     "mobx": "^3.1.16",
     "mobx-react": "^4.2.1",
-    "mobx-state-tree": "^1.1.0",
+    "mobx-state-tree": "^1.2.0",
     "nornj": "^0.4.2-rc.14",
     "nornj-loader": "^0.4.2-beta.1",
     "nornj-react": "^0.4.2-rc.2",
@@ -103,7 +104,6 @@
     "react-router-dom": "^4.1.1",
     "react-router-transition": "0.0.6",
     "universal-cookie": "^2.0.8",
-    "vic-common": "0.0.139",
     "whatwg-fetch": "^0.11.1"
   },
   "nodemonConfig": {
