@@ -65,7 +65,7 @@ const RootStore = types.model("RootStore", {
       },
       {
         type: 'link-item',
-        index: 'Menu2_5',
+        index: 'Page4_1',
         name: '客服管理',
         expanded: false,
         icon:'phone',

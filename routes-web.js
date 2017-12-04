@@ -69,8 +69,6 @@ const Page1_2 = inject("store")(
   `())
 );
 
-//{pageComponent}//
-
 /**
  * 页面4-1
  */
@@ -86,6 +84,8 @@ const Page4_1 = inject("store")(
     </${PageWrap}>
   `())
 );
+
+//{pageComponent}//
 
 const PageWrap = inject("store")(
   observer(({ store, children }) => nj`
