@@ -4,6 +4,7 @@ import HeaderStore from "./headerStore";
 import SiderStore from "./SiderStore";
 import Page1_1Store from "./pages/page1_1Store";
 import Page1_2Store from "./pages/page1_2Store";
+import Page4_1Store from "./pages/page4_1Store";
 
 const RootStore = types.model("RootStore", {
   common: types.optional(CommonStore, {}),
@@ -81,8 +82,8 @@ const RootStore = types.model("RootStore", {
         name: '二级菜单3',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/Page3_1', index: 'Page3_1', name: '页面3-1' },
-          { type: 'item', level: 3, link: '/Page3_2', index: 'Page3_2', name: '页面3-2' },
+          { type: 'item', level: 3, link: '/Page6_1', index: 'Page6_1', name: '页面6-1' },
+          { type: 'item', level: 3, link: '/Page6_2', index: 'Page6_2', name: '页面6-2' },
         ]
       }, {
         type: 'group',
@@ -90,8 +91,8 @@ const RootStore = types.model("RootStore", {
         name: '二级菜单4',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/Page4_1', index: 'Page4_1', name: '页面4-1' },
-          { type: 'item', level: 3, link: '/Page4_2', index: 'Page4_2', name: '页面4-2' },
+          { type: 'item', level: 3, link: '/Page7_1', index: 'Page7_1', name: '页面7-1' },
+          { type: 'item', level: 3, link: '/Page7_2', index: 'Page7_2', name: '页面7-2' },
         ]
       }]
     }]
@@ -99,6 +100,7 @@ const RootStore = types.model("RootStore", {
 
   page1_1: types.optional(Page1_1Store, {}),
   page1_2: types.optional(Page1_2Store, {}),
+  page4_1: types.optional(Page4_1Store, {}),
 
 });
 

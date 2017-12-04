@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import { observer, Provider, inject } from 'mobx-react';
 import loadPage1_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_1/page1_1.js';
 import loadPage1_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_2/page1_2.js';
+import loadPage4_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page4_1/page4_1.js';
 import Header from './src/web/components/header';
 import Sider from './src/web/components/sider';
 
@@ -47,6 +48,23 @@ const Page1_2 = inject("store")(
   `())
 );
 
+
+/**
+ * 页面4-1
+ */
+const Page4_1 = inject("store")(
+  observer(({ store }) => nj`
+    <${PageWrap}>
+      <${Bundle} load=${loadPage4_1} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Page4_1) => {
+          const Page4_1 = withRouter(_Page4_1)
+          return nj`<${Page4_1}/>`();
+        }}
+      </${Bundle}>
+    </${PageWrap}>
+  `())
+);
+
 const PageWrap = inject("store")(
   observer(({ store, children }) => nj`
     <div>
@@ -64,6 +82,7 @@ const routes = () => nj`
     <Route exact path='/' component=${Page1_1}/>
     <Route exact path='/Page1_1' component=${Page1_1} />
     <Route exact path='/Page1_2' component=${Page1_2} />
+    <Route exact path='/Page4_1' component=${Page4_1} />
     <Redirect from='*' to='/'/>
   </router-Switch>
 `();
