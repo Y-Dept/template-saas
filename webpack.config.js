@@ -9,7 +9,8 @@ const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const pxToRem = require('postcss-pxtorem');
 const VERSION = '20170928';
-const theme = require('./src/utils/theme');
+// const theme = require('./src/utils/theme');
+const theme = {};
 
 module.exports = {
   entry: {
