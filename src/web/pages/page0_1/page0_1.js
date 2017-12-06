@@ -12,6 +12,7 @@ import 'flarej/lib/components/antd/pagination';
 import 'flarej/lib/components/antd/tabs';
 import 'flarej/lib/components/antd/tree';
 import 'flarej/lib/components/antd/checkbox';
+import Breadcrumb from 'flarej/lib/components/antd/breadcrumb';
 import Modal from 'flarej/lib/components/antd/modal';
 import Tree from 'flarej/lib/components/antd/tree';
 import Input from 'flarej/lib/components/antd/input';
@@ -165,11 +166,13 @@ export default class Page0_1 extends Component {
 
   render() {
     const { store: { page0_1 } } = this.props;
+    const { Item } = Breadcrumb;
     return tmpls.container(this.props, this, {
       styles,
       page0_1,
       tableData: toJS(page0_1.tableData),
       rowSelection: this.getRowSelection(),
+      Item
     });
   }
 }
