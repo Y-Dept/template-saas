@@ -9,13 +9,7 @@ const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const pxToRem = require('postcss-pxtorem');
 const VERSION = '20170928';
-
-//app - 修改主题颜色
-const appTheme = process.env.Project === 'app' ? require('./src/app/config/theme') : {};
-const iconUrl = {
-  "icon-url": JSON.stringify('../../../../vic-common/resources/libs/iconfont/iconfont')
-};
-const modifyVars = Object.assign({}, appTheme, iconUrl);
+const theme = require('./src/utils/theme');
 
 module.exports = {
   entry: {
@@ -129,7 +123,7 @@ module.exports = {
           }, 'postcss-loader', {
             loader: 'less-loader',
             options: {
-              "modifyVars": modifyVars
+              "modifyVars": theme
             }
           }]
         }),
