@@ -1,6 +1,6 @@
-﻿@mixin ellipsis { text-overflow: ellipsis;white-space: nowrap;overflow: hidden; }
+@mixin ellipsis { text-overflow: ellipsis;white-space: nowrap;overflow: hidden; }
 
-.page4_1{
+.#{pageName}#{
   padding-top:60px;
 
   .bePageCnt{

@@ -46,7 +46,7 @@ const Summary = types.model("Summary", {
   userCountMOM: 0
 });
 
-const Page4_1Store = types.model("Page4_1Store", {
+const #{pageName | pascal}#Store = types.model("#{pageName | pascal}#Store", {
     summaryData: types.optional(Summary, () => {
       return {
         gmv: 0,
@@ -89,7 +89,7 @@ const Page4_1Store = types.model("Page4_1Store", {
     return {
       getSummaryData() {
         return fetchData(
-            `${__HOST}/page4_1/getSummaryData`,
+            `${__HOST}/#{pageName}#/getSummaryData`,
             self.setSummaryData,
             null, { method: 'get' })
           .catch((ex) => {
@@ -137,7 +137,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getGrowthData(params) {
         return fetchData(
-            `${__HOST}/page4_1/growthData`,
+            `${__HOST}/#{pageName}#/growthData`,
             self.setGrowthData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -175,7 +175,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getSubCategoryData(params) {
         return fetchData(
-            `${__HOST}/page4_1/getSubCategoryData`,
+            `${__HOST}/#{pageName}#/getSubCategoryData`,
             self.setSubCategoryData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -202,7 +202,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getBarSubCategoryData(params) {
         return fetchData(
-            `${__HOST}/page4_1/getBarSubCategoryData`,
+            `${__HOST}/#{pageName}#/getBarSubCategoryData`,
             self.setBarSubCategoryData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -225,7 +225,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getTableSubCategoryData(params) {
         return fetchData(
-            `${__HOST}/page4_1/getTableSubCategoryData`,
+            `${__HOST}/#{pageName}#/getTableSubCategoryData`,
             self.setTableSubCategoryData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -242,7 +242,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getBrandCompareList(params) {
         return fetchData(
-            `${__HOST}/page4_1/getBrandCompareList`,
+            `${__HOST}/#{pageName}#/getBrandCompareList`,
             self.setBrandCompareList,
             params, { method: 'get' })
           .catch((ex) => {
@@ -286,7 +286,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getBrandCompareItemForCategory(params) {
         return fetchData(
-            `${__HOST}/page4_1/getBrandCompareItemForCategory`,
+            `${__HOST}/#{pageName}#/getBrandCompareItemForCategory`,
             self.setBrandCompareItemForCategory,
             params, { method: 'get' })
           .catch((ex) => {
@@ -332,4 +332,4 @@ const Page4_1Store = types.model("Page4_1Store", {
     }
   });
 
-export default Page4_1Store;
+export default #{pageName | pascal}#Store;
