@@ -20,6 +20,7 @@ import Message from 'flarej/lib/components/antd/message';
 import Notification from '../../../utils/notification';
 import styles from './page0_1.m.scss';
 import tmpls from './page0_1.t.html';
+// import 'template-saas-theme/theme/theme-jd-red.scss';
 
 //页面容器组件
 @registerTmpl('Page0_1')
