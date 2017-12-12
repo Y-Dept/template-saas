@@ -1,0 +1,10 @@
+<template name="page4_2">
+  <div class="{styles.page4_2}">
+    <div class="{styles.bePageCnt}">
+      <div class="{styles.editor}">
+        <reactQuill onChange={handleChange} value={text} modules={toJS(modules)} formats={toJS(formats)} theme="snow" style="height:258px" />
+      </div>
+      <div>{convertedText}</div>
+    </div>
+  </div>
+</template>

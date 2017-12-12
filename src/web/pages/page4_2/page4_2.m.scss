@@ -1,0 +1,15 @@
+﻿@mixin ellipsis { text-overflow: ellipsis;white-space: nowrap;overflow: hidden; }
+
+.page4_2{
+  padding-top:60px;
+
+  .bePageCnt{
+    margin:20px;
+    padding:20px 20px 150px 20px;
+    background: #fff;
+
+    .editor{
+      height:300px;display: block;
+    }
+  }
+}
