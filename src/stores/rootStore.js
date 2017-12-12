@@ -22,7 +22,7 @@ const RootStore = types.model("RootStore", {
       {
       type: 'group',
       index: 'Menu1_1',
-      name: '一级菜单1',
+      name: '控制台',
       expanded: false,
       children: [{
         type: 'link-item',
@@ -85,7 +85,7 @@ const RootStore = types.model("RootStore", {
     }, {
       type: 'group',
       index: 'Menu1_2',
-      name: '一级菜单2',
+      name: '产品服务',
       expanded: false,
       children: [{
         type: 'group',
