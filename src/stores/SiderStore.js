@@ -74,7 +74,7 @@ const SiderStore = types.model("SiderStore", {
 
       setCurrentMenu() {
         let href = window.location.href;
-        href = href.substring(href.lastIndexOf("\/") + 1, href.length);
+        href = href.substring(href.lastIndexOf('#/') + 2, href.length);
 
         //初始化一级菜单
         let menu0 = self.menuData[0];
