@@ -118,7 +118,7 @@
     ]
   },
   "njCliConfig": {
-    "templateType": "multi-page",
+    "templateType": "single-page",
     "privateLib": "vic-common",
     "privateNpmUrl": "http://192.168.151.68:8001"
   }
