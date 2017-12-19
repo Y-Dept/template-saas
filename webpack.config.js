@@ -8,9 +8,14 @@
 const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const pxToRem = require('postcss-pxtorem');
-const VERSION = '20170928';
-// const theme = require('template-saas-theme').red;
-const theme = {};
+const VERSION = '20171219';
+
+//主题
+const theme = require('saas-theme').interior;
+const iconUrl = {
+  "icon-url": JSON.stringify('../../../../vic-common/resources/libs/iconfont/iconfont')
+};
+const modifyVars = Object.assign({}, theme, iconUrl);
 
 module.exports = {
   entry: {
@@ -124,7 +129,7 @@ module.exports = {
           }, 'postcss-loader', {
             loader: 'less-loader',
             options: {
-              "modifyVars": theme
+              "modifyVars": modifyVars
             }
           }]
         }),

@@ -9,7 +9,7 @@ import loadPage1_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_2/
 import loadPage4_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page4_1/page4_1.js';
 import loadPage4_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page4_2/page4_2.js';
 //{importLoadPage}//
-import Header from './src/web/components/header';
+import Header from 'saas-common/lib/header';
 import Sider from './src/web/components/sider';
 
 const HeaderWithRouter = withRouter(Header)
