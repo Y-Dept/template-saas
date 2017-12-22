@@ -8,20 +8,21 @@
 const isProd = process.env.NODE_ENV == 'production';
 const isTest = process.env.NODE_ENV == 'test';
 const pxToRem = require('postcss-pxtorem');
-const VERSION = '20171219';
+const VERSION = '20171218';
 
-//主题
-const theme = require('saas-theme').interior;
 const iconUrl = {
   "icon-url": JSON.stringify('../../../../vic-common/resources/libs/iconfont/iconfont')
 };
-const modifyVars = Object.assign({}, theme, iconUrl);
+const modifyVars = Object.assign({}, iconUrl);
+
+const webpackExternals = {
+  'saas-common': 'SaasCommon'
+};
 
 module.exports = {
   entry: {
     app: ['react-hot-loader/patch', path.resolve(__dirname, './app-' + process.env.Project + '.js')],
-    //appHome: [path.resolve(__dirname, './app-' + process.env.Project + '-home.js')],
-    vendor: ['react', 'react-dom', 'react-router', 'mobx', 'mobx-react', 'mobx-state-tree', 'nornj', 'nornj-react', 'core-decorators']
+    vendor: ['./src/web/misc/vendorIndex.js', 'react', 'react-dom', 'react-router', 'mobx', 'mobx-react', 'mobx-state-tree', 'nornj', 'nornj-react', 'core-decorators']
   },
   output: {
     path: path.resolve(__dirname, './dist/'),
@@ -44,6 +45,7 @@ module.exports = {
     },
     extensions: ['.web.js', '.ts', '.tsx', '.js', '.jsx', '.css', '.scss', '.less']
   },
+  externals: webpackExternals,
   module: {
     rules: [{
         test: /\.ts(x?)$/,
@@ -89,15 +91,20 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: "style-loader"
-        }, {
-          loader: "css-loader"
-        }, {
-          loader: "postcss-loader"
-        }, {
-          loader: "sass-loader"
-        }],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: (isProd || isTest),
+              sourceMap: !isProd
+            }
+          }, {
+            loader: "postcss-loader"
+          }, {
+            loader: "sass-loader"
+          }]
+        }),
         exclude: /.m.scss$/
       },
       {
@@ -147,7 +154,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: (isProd || isTest),
+              sourceMap: !isProd
+            }
+          }, {
+            loader: "postcss-loader"
+          }]
+        }),
       },
       {
         test: /\.(jpe?g|png|gif|ico)$/,
@@ -199,16 +217,10 @@ module.exports.plugins = [
   new HtmlWebpackPlugin({
     filename: process.env.Project + '/index.html',
     template: './index.template-' + process.env.Project + '.html',
-    inject: 'true',
+    inject: false,
     chunks: ['vendor', 'app'],
-    path: (isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`
-  }),
-  new HtmlWebpackPlugin({
-    inject: 'true',
-    chunks: ['vendor', 'appHome'],
-    filename: process.env.Project + '/home.html',
-    template: './index.template-' + process.env.Project + '.html',
-    path: (isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`
+    path: (isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`,
+    version: VERSION
   }),
   new webpack.NamedModulesPlugin(),
   new webpack.DefinePlugin({
