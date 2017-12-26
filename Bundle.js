@@ -12,7 +12,9 @@ class Bundle extends Component {
   componentWillMount() {
     const { store, isPc, loadBundles } = this.props;
     if (store && !store.common.userInfo) { //获取用户登录信息
-      const fetchs = [store.common.getCurrentUserInfo()];
+      const fetchs = [
+        //store.common.getCurrentUserInfo()
+      ];
       if (isPc) {
         store.sider.setCurrentMenu();
       }

@@ -1,16 +1,56 @@
-import { types } from "mobx-state-tree"
+import { types, getParent } from "mobx-state-tree";
 
 const HeaderStore = types.model("HeaderStore", {
     current: types.number,
-    title: '' //在导航栏显示当前页标题，用于app
+    workbenchMenusUrl: ''
   })
+  .views(self => {
+    return {
+      get common() {
+        return getParent(self).common;
+      }
+    };
+  })
+  .volatile(self => ({
+    workbenchMenus: []
+  }))
   .actions(self => {
     return {
       setCurrent(index) {
         self.current = index
       },
-      setPageTitle(title) { //设置标题
-        self.title = title;
+
+      getWorkbenchMenus() {
+        return self.common.fetchJsonp(self.workbenchMenusUrl, {
+            jsonpCallback: 'callback'
+          })
+          .then(response => {
+            return response.json();
+          }).then(self.setWorkbenchMenus).catch(ex => {
+            self.common.Notification.error({
+              description: '获取工作台菜单信息异常:' + ex,
+              duration: null
+            });
+          });
+
+        // return self.common.fetchData(self.workbenchMenusUrl,
+        //   self.setWorkbenchMenus,
+        //   null, { method: 'get' }).catch((ex) => {
+        //   Notification.error({
+        //     description: '获取工作台菜单信息异常:' + ex,
+        //     duration: null
+        //   });
+        // });
+      },
+      setWorkbenchMenus(result) {
+        if (result.success) {
+          self.workbenchMenus = result.data;
+        } else {
+          self.common.Notification.error({
+            description: '获取工作台菜单信息错误:' + result.message,
+            duration: null
+          });
+        }
       }
     }
   });

@@ -22,7 +22,18 @@ const webpackExternals = {
 module.exports = {
   entry: {
     app: ['react-hot-loader/patch', path.resolve(__dirname, './app-' + process.env.Project + '.js')],
-    vendor: ['./src/web/misc/vendorIndex.js', 'react', 'react-dom', 'react-router', 'mobx', 'mobx-react', 'mobx-state-tree', 'nornj', 'nornj-react', 'core-decorators']
+    vendor: [
+      './src/web/misc/vendorIndex.js',
+      'react',
+      'react-dom',
+      'react-router',
+      'mobx',
+      'mobx-react',
+      'mobx-state-tree',
+      'nornj',
+      'nornj-react',
+      'core-decorators'
+    ]
   },
   output: {
     path: path.resolve(__dirname, './dist/'),

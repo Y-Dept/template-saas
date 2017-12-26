@@ -26,6 +26,9 @@ app.all('*', function(req, res, next) {
   else next();
 });
 
+const authMenu = require('saas-common/lib/server/routes/authMenu');
+app.use('/', authMenu);
+
 const page0_1 = require('./routes/page0_1');
 app.use('/page0_1', page0_1);
 

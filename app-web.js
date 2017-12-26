@@ -30,6 +30,9 @@ if (!Object.assign && babelHelpers) {
 import Notification from 'flarej/lib/components/antd/notification';
 import { createNotification } from './src/utils/notification';
 createNotification(Notification);
+import 'flarej/lib/components/antd/icon';
+import 'flarej/lib/components/antd/menu';
+import 'flarej/lib/components/antd/dropdown';
 
 const rootStore = RootStore.create({});
 // onSnapshot(rootStore, (snapshot) => {

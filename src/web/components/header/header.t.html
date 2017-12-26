@@ -1,0 +1,35 @@
+<header class="site-header{store.sider.isOpen ? (' isMenuOpen', '')}">
+  <div class="site-logo"><div class="header-logo">SAAS</div></div>
+  <ul class="site-nav">
+    <#each {store.sider.menuData}>
+      <#switch {type}>
+        <#case {'group'}>
+          <li key={@index} class="{store.header.current == @index ? 'cur'}" onClick={navChanged(@index)}>{name}</li>
+        </#case>
+        <#case {'dropdown'}>
+          <li key={@index}>
+            <ant-Dropdown trigger="{['click']}">
+              <@overlay>
+                <ant-Menu>
+                  <#each {store.header.workbenchMenus}>
+                    <ant-MenuItem key="{@index}">
+                      <a href="{url}">{name}</a>
+                    </ant-MenuItem>
+                  </#each>
+                </ant-Menu>
+              </@overlay>
+              <a href="#">
+                {name}<ant-Icon type="down" />
+              </a>
+            </ant-Dropdown>
+          </li>
+        </#case>
+      </#switch>
+    </#each>
+  </ul>
+  <div class="login-wrap middle">
+    <a class="link">{store.common.('userInfo').('pin')}</a>
+    <a class="avatar"></a>
+    <a class="link">注销</a>
+  </div>
+</header>
