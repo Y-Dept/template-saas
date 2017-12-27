@@ -9,11 +9,6 @@ import template from './header.t.html';
 @inject('store')
 @observer
 export default class Header extends Component {
-  componentDidMount() {
-    const { store: { header } } = this.props;
-    header.getWorkbenchMenus();
-  }
-
   @autobind
   navChanged(index) {
     return e => {

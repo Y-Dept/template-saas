@@ -2,29 +2,7 @@
   <div class="site-logo"><div class="header-logo">SAAS</div></div>
   <ul class="site-nav">
     <#each {store.sider.menuData}>
-      <#switch {type}>
-        <#case {'group'}>
-          <li key={@index} class="{store.header.current == @index ? 'cur'}" onClick={navChanged(@index)}>{name}</li>
-        </#case>
-        <#case {'dropdown'}>
-          <li key={@index}>
-            <ant-Dropdown trigger="{['click']}">
-              <@overlay>
-                <ant-Menu>
-                  <#each {store.header.workbenchMenus}>
-                    <ant-MenuItem key="{@index}">
-                      <a href="{url}">{name}</a>
-                    </ant-MenuItem>
-                  </#each>
-                </ant-Menu>
-              </@overlay>
-              <a href="#">
-                {name}<ant-Icon type="down" />
-              </a>
-            </ant-Dropdown>
-          </li>
-        </#case>
-      </#switch>
+      <li key={@index} class="{store.header.current == @index ? 'cur'}" onClick={navChanged(@index)}>{name}</li>
     </#each>
   </ul>
   <div class="login-wrap middle">

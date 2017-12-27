@@ -1,7 +1,7 @@
 import { types } from "mobx-state-tree";
 import { CommonStore } from "./commonStore";
 import { HeaderStore, workbenchMenusUrl } from 'saas-common';
-import SiderStore from "./SiderStore";
+import SiderStore from "./siderStore";
 import Page0_1Store from "./pages/page0_1Store";
 import Page1_1Store from "./pages/page1_1Store";
 import Page1_2Store from "./pages/page1_2Store";
