@@ -7,7 +7,7 @@
   "scripts": {
     "dev-web": "npm run copy | npm run server | cross-env Project=web webpack-dev-server --host 0.0.0.0 --inline --hot --progress",
     "build-web": "npm run copy && cross-env Project=web NODE_ENV=production webpack --progress --hide-modules",
-    "build-web-test": "npm run copy && cross-env Project=web NODE_ENV=test webpack --progress --hide-modules",
+    "build-web-test": "npm run copy && cross-env Project=web BABEL_ENV=development NODE_ENV=test webpack --progress --hide-modules",
     "server": "nodemon ./server/app.js",
     "lint": "eslint src",
     "theme": "cpx \"node_modules/saas-theme/dist/**/*.{css,css.map}\" dist/web",
