@@ -1,3 +1,14 @@
+import 'whatwg-fetch';
+import 'es6-weak-map/implement';
+import arrayFrom from 'array-from';
+if (!Array.from) Array.from = arrayFrom;
+import 'console-polyfill';
+import 'core-js/es6/map';
+import 'core-js/es6/set';
+import 'core-js/es6/object';
+!window.requestAnimationFrame && (window.requestAnimationFrame = function(callback) {
+  setTimeout(callback, 0);
+});
 import React from 'react';
 import ReactDom from 'react-dom';
 import * as ReactRouter from 'react-router';

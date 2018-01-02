@@ -10,10 +10,11 @@ const isTest = process.env.NODE_ENV == 'test';
 const pxToRem = require('postcss-pxtorem');
 const VERSION = '20171218';
 
+const antdTheme = require('saas-theme').interior;
 const iconUrl = {
   "icon-url": JSON.stringify('../../../../vic-common/resources/libs/iconfont/iconfont')
 };
-const modifyVars = Object.assign({}, iconUrl);
+const modifyVars = Object.assign({}, iconUrl, antdTheme);
 
 const webpackExternals = {
   'saas-common': 'SaasCommon'

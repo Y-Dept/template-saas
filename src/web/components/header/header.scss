@@ -4,7 +4,7 @@
   height: 60px;
   border-bottom: 1px solid #ebebeb;
   position: fixed;
-  width:100%;
+  width: 100%;
   z-index: 100;
   transition: all .5s ease-out;
   background-image: linear-gradient(to right, #5a77d4, #3c4c9d);
@@ -16,7 +16,7 @@
     line-height: 32px;
     padding-left: 35px;
     /*background-color: #1d5c5c;*/
-    background-image: url(../../images/header-logo.png);
+    background-image: url("../../images/header-logo.png");
     background-repeat: no-repeat;
     background-size: 30px 100%;
     border-radius: 6px;
@@ -28,66 +28,83 @@
     font-weight: bold;
   }
 
-  ul{padding-left:80px;transition: all .5s ease-out;}
-  &.isMenuOpen > ul{padding-left:0;}
+  ul {
+    padding-left: 80px;
+    transition: all .5s ease-out;
+  }
 
-  li{
+  &.isMenuOpen > ul {
+    padding-left: 0;
+  }
+
+  li {
     float: left;
     text-align: center;
     line-height: 60px;
-    margin-left:60px;
+    margin-left: 60px;
     position: relative;
     height: 59px;
     overflow: hidden;
     cursor: pointer;
     color: #fff;
-    
-    a{
+
+    a {
       color: #fff;
       display: inline-block;
       height: 59px;
     }
 
     &:after {
-        content: '';
-        width:100%;
-        height: 2px;
-        background: #fff;
-        position: absolute;
-        bottom:-2px;
-        left:0;
-        transition: all .5s;
+      content: '';
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      transition: all .5s;
     }
-
-    .site-nav{ float: left;}
-
   }
 
-  li.cur{
-    color:#fff;
+  .site-nav {
+    float: left;
+  }
+
+  li.cur {
+    color: #fff;
 
     &:after {
-        bottom:0;
+      bottom: 0;
     }
   }
 
-  .login-wrap{
+  .login-wrap {
     float: right;
-    padding:5px 18px 0 0;
+    padding: 5px 18px 0 0;
 
-    a.link{
-      font-size: 14px;color: #fff;margin:0 30px;
+    a.link {
+      font-size: 14px;
+      color: #fff;
+      margin: 0 30px;
+
       &.cur {
-        color:#35a5a6;
+        color: #35a5a6;
       }
     }
 
-    span{color: #ebebeb;font-size:12px;}
+    span {
+      color: #ebebeb;
+      font-size: 12px;
+    }
 
-    .avatar{
-      width:50px;height:50px;border-radius: 50%;background-position: center center;background-repeat: no-repeat;
-      display:inline-block;
-      background-image: url(../../images/pic-header.png);
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: inline-block;
+      background-image: url("../../images/pic-header.png");
       background-repeat: no-repeat;
       background-size: 100% 100%;
     }
