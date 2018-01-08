@@ -9,11 +9,7 @@ import loadPage1_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_2/
 import loadPage4_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page4_1/page4_1.js';
 import loadPage4_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page4_2/page4_2.js';
 //{importLoadPage}//
-import { Header } from 'saas-common';
-import Sider from './src/web/components/sider';
 
-const HeaderWithRouter = withRouter(Header)
-const SiderWithRouter = withRouter(Sider)
 const loadBundles = {
   loadPage0_1,
   loadPage1_1,
@@ -107,12 +103,8 @@ const Page4_2 = inject("store")(
 
 const PageWrap = inject("store")(
   observer(({ store, children }) => nj`
-    <div>
-      <${SiderWithRouter}/>
-      <${HeaderWithRouter}/>
-      <div id="page-wrap" className=${store.sider.isOpen ? 'isMenuOpen' : ''}>
-        ${children}
-      </div>
+    <div id="page-wrap" className=${store.sider.isOpen ? 'isMenuOpen' : ''}>
+      ${children}
     </div>
   `())
 );

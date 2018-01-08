@@ -31,6 +31,11 @@ import 'flarej/lib/components/antd/menu';
 import 'flarej/lib/components/antd/dropdown';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
+import { Header } from 'saas-common';
+import Sider from './src/web/components/sider';
+
+const HeaderWithRouter = withRouter(Header);
+const SiderWithRouter = withRouter(Sider);
 
 const rootStore = RootStore.create({});
 // onSnapshot(rootStore, (snapshot) => {
@@ -43,6 +48,8 @@ const renderApp = appRoutes => {
       <mobx-Provider store=${rootStore}>
         <HashRouter>
           <div id="outer-container">
+            <${SiderWithRouter}/>
+            <${HeaderWithRouter}/>
             ${appRoutes()}
           </div>
         </HashRouter>
