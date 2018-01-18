@@ -142,7 +142,7 @@ const Page0_1Store = types.model("Page0_1Store", {
       },
 
       getRoleMenuTree(params) {
-        return fetchData(`${__HOST}/page0_1/getRoleMenuTree`,
+        return fetchData(`${__HOST}page0_1/getRoleMenuTree`,
           self.setRoleMenuTree,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -166,7 +166,7 @@ const Page0_1Store = types.model("Page0_1Store", {
       },
 
       getRoleManagementData(params) {
-        return fetchData(`${__HOST}/page0_1/getRoleManagementData`,
+        return fetchData(`${__HOST}page0_1/getRoleManagementData`,
           self.setRoleManagementData,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -189,7 +189,7 @@ const Page0_1Store = types.model("Page0_1Store", {
       },
 
       searchRole(params) {
-        return fetchData(`${__HOST}/page0_1/searchRole`,
+        return fetchData(`${__HOST}page0_1/searchRole`,
           self.setSearchRole,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -212,7 +212,7 @@ const Page0_1Store = types.model("Page0_1Store", {
       },
 
       saveRole(params) {
-        return fetchData(`${__HOST}/page0_1/saveRole`,
+        return fetchData(`${__HOST}page0_1/saveRole`,
           self.setSaveRole,
           params, { method: 'post' }).catch((ex) => {
           Notification.error({
@@ -238,7 +238,7 @@ const Page0_1Store = types.model("Page0_1Store", {
       },
 
       saveRolePermission(params) {
-        return fetchData(`${__HOST}/page0_1/saveRolePermission`,
+        return fetchData(`${__HOST}page0_1/saveRolePermission`,
           self.setSaveRolePermission,
           params, { method: 'post' }).catch((ex) => {
           Notification.error({
@@ -260,7 +260,7 @@ const Page0_1Store = types.model("Page0_1Store", {
       },
 
       deleteRole(params) {
-        return fetchData(`${__HOST}/page0_1/deleteRole`,
+        return fetchData(`${__HOST}page0_1/deleteRole`,
           self.setDeleteRole,
           params, { method: 'post' }).catch((ex) => {
           Notification.error({

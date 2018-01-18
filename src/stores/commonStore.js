@@ -26,7 +26,7 @@ export const CommonStore = types.model("CommonStore", {
   .actions(self => {
     return {
       getCurrentUserInfo() {
-        return fetchData(`${__HOST}/common/getCurrentUserInfo`,
+        return fetchData(`${__HOST}common/getCurrentUserInfo`,
           self.setCurrentUserInfo,
           null, { method: 'post' }).catch((ex) => {
           Notification.error({

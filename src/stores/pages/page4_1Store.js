@@ -89,7 +89,7 @@ const Page4_1Store = types.model("Page4_1Store", {
     return {
       getSummaryData() {
         return fetchData(
-            `${__HOST}/page4_1/getSummaryData`,
+            `${__HOST}page4_1/getSummaryData`,
             self.setSummaryData,
             null, { method: 'get' })
           .catch((ex) => {
@@ -137,7 +137,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getGrowthData(params) {
         return fetchData(
-            `${__HOST}/page4_1/growthData`,
+            `${__HOST}page4_1/growthData`,
             self.setGrowthData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -175,7 +175,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getSubCategoryData(params) {
         return fetchData(
-            `${__HOST}/page4_1/getSubCategoryData`,
+            `${__HOST}page4_1/getSubCategoryData`,
             self.setSubCategoryData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -202,7 +202,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getBarSubCategoryData(params) {
         return fetchData(
-            `${__HOST}/page4_1/getBarSubCategoryData`,
+            `${__HOST}page4_1/getBarSubCategoryData`,
             self.setBarSubCategoryData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -225,7 +225,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getTableSubCategoryData(params) {
         return fetchData(
-            `${__HOST}/page4_1/getTableSubCategoryData`,
+            `${__HOST}page4_1/getTableSubCategoryData`,
             self.setTableSubCategoryData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -242,7 +242,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getBrandCompareList(params) {
         return fetchData(
-            `${__HOST}/page4_1/getBrandCompareList`,
+            `${__HOST}page4_1/getBrandCompareList`,
             self.setBrandCompareList,
             params, { method: 'get' })
           .catch((ex) => {
@@ -286,7 +286,7 @@ const Page4_1Store = types.model("Page4_1Store", {
       },
       getBrandCompareItemForCategory(params) {
         return fetchData(
-            `${__HOST}/page4_1/getBrandCompareItemForCategory`,
+            `${__HOST}page4_1/getBrandCompareItemForCategory`,
             self.setBrandCompareItemForCategory,
             params, { method: 'get' })
           .catch((ex) => {

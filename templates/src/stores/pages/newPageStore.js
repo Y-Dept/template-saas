@@ -142,7 +142,7 @@ const #{pageName | pascal}#Store = types.model("#{pageName | pascal}#Store", {
       },
 
       getRoleMenuTree(params) {
-        return fetchData(`${__HOST}/#{pageName}#/getRoleMenuTree`,
+        return fetchData(`${__HOST}#{pageName}#/getRoleMenuTree`,
           self.setRoleMenuTree,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -166,7 +166,7 @@ const #{pageName | pascal}#Store = types.model("#{pageName | pascal}#Store", {
       },
 
       getRoleManagementData(params) {
-        return fetchData(`${__HOST}/#{pageName}#/getRoleManagementData`,
+        return fetchData(`${__HOST}#{pageName}#/getRoleManagementData`,
           self.setRoleManagementData,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -189,7 +189,7 @@ const #{pageName | pascal}#Store = types.model("#{pageName | pascal}#Store", {
       },
 
       searchRole(params) {
-        return fetchData(`${__HOST}/#{pageName}#/searchRole`,
+        return fetchData(`${__HOST}#{pageName}#/searchRole`,
           self.setSearchRole,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -212,7 +212,7 @@ const #{pageName | pascal}#Store = types.model("#{pageName | pascal}#Store", {
       },
 
       saveRole(params) {
-        return fetchData(`${__HOST}/#{pageName}#/saveRole`,
+        return fetchData(`${__HOST}#{pageName}#/saveRole`,
           self.setSaveRole,
           params, { method: 'post' }).catch((ex) => {
           Notification.error({
@@ -238,7 +238,7 @@ const #{pageName | pascal}#Store = types.model("#{pageName | pascal}#Store", {
       },
 
       saveRolePermission(params) {
-        return fetchData(`${__HOST}/#{pageName}#/saveRolePermission`,
+        return fetchData(`${__HOST}#{pageName}#/saveRolePermission`,
           self.setSaveRolePermission,
           params, { method: 'post' }).catch((ex) => {
           Notification.error({
@@ -260,7 +260,7 @@ const #{pageName | pascal}#Store = types.model("#{pageName | pascal}#Store", {
       },
 
       deleteRole(params) {
-        return fetchData(`${__HOST}/#{pageName}#/deleteRole`,
+        return fetchData(`${__HOST}#{pageName}#/deleteRole`,
           self.setDeleteRole,
           params, { method: 'post' }).catch((ex) => {
           Notification.error({

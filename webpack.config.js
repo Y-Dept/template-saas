@@ -237,7 +237,7 @@ module.exports.plugins = [
   new webpack.NamedModulesPlugin(),
   new webpack.DefinePlugin({
     __ENV: (isProd || isTest) ? "'pro'" : "'dev'",
-    __HOST: (isProd || isTest) ? "''" : "'http://localhost:8089'",
+    __HOST: (isProd || isTest) ? "''" : "'http://localhost:8089/'",
     'process.env': {
       'NODE_ENV': JSON.stringify(isProd ? 'production' : 'development')
     }
