@@ -2,6 +2,7 @@ import nj, { registerFilter } from 'nornj';
 import { toJS } from 'mobx';
 import { outputMoney } from 'flarej/lib/utils/math';
 import { mediaQuery } from 'flarej/lib/utils/page';
+import intl from 'react-intl-universal';
 
 registerFilter({
   percent: (v, bit) => {
@@ -61,5 +62,6 @@ registerFilter({
     }
 
     return (v.length > len && mediaQuery('(max-width: 1400px)')) ? v.substr(0, len) + '...' : v;
-  }
+  },
+  intl: key => intl.get(key)
 });

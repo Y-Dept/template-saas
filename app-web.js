@@ -31,6 +31,18 @@ import 'flarej/lib/components/antd/menu';
 import 'flarej/lib/components/antd/dropdown';
 import { LocaleProvider } from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
+import intl from 'react-intl-universal';
+import en_US from './src/web/locales/en-US.js';
+import zh_CN from './src/web/locales/zh-CN.js';
+const locales = {
+  "en-us": en_US,
+  "zh-cn": zh_CN,
+};
+intl.init({
+  currentLocale: (navigator.language || navigator.browserLanguage).toLowerCase(),
+  locales
+});
+
 import { Header } from 'saas-common';
 import Sider from './src/web/components/sider';
 
