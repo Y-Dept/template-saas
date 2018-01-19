@@ -85,12 +85,12 @@ module.exports = {
         }],
         exclude: /node_modules/
       },
-      {
-        test: /\.(js|jsx)$/,
-        enforce: 'pre',
-        use: ['eslint-loader'],
-        include: /src/,
-      },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   enforce: 'pre',
+      //   use: ['eslint-loader'],
+      //   include: /src/,
+      // },
       {
         test: /\.t.html(\?[\s\S]+)*$/,
         use: [{
