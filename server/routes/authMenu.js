@@ -10,7 +10,7 @@ router.get('/authManagement/menu/getSystemMenus', function(req, res) {
     "data": [{
         "iconName": "appstore-o",
         "name": "总览",
-        "urlId": "overview"
+        "urlId": "page0_1"
       },
       {
         "iconName": "idcard",
