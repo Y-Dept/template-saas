@@ -1,6 +1,6 @@
 import { types } from "mobx-state-tree";
 import { CommonStore } from "./commonStore";
-import { HeaderStore, workbenchMenusUrl } from 'saas-common';
+import { HeaderStore, workbenchMenusUrl, systemMenusUrl } from 'saas-common';
 import SiderStore from "./siderStore";
 import Page0_1Store from "./pages/page0_1Store";
 import Page1_1Store from "./pages/page1_1Store";
@@ -19,68 +19,70 @@ const RootStore = types.model("RootStore", {
   sider: types.optional(SiderStore, {
     isOpen: false,
     current: 'Page1_1',
+    systemMenusUrl: `${__HOST}${systemMenusUrl}`,
     menuData: [{
       type: 'group',
       index: 'Menu1_1',
       name: '控制台',
       expanded: false,
-      children: [{
-          type: 'link-item',
-          index: 'Page0_1',
-          name: '总览',
-          expanded: false,
-          icon: 'appstore-o',
-          link: '/Page0_1',
-          children: []
-        }, {
-          type: 'group',
-          index: 'Menu2_2',
-          name: '权限管理',
-          expanded: false,
-          icon: 'idcard',
-          children: [
-            { type: 'item', level: 3, link: '/Page1_1', index: 'Page1_1', name: '用户管理' },
-            { type: 'item', level: 3, link: '/Page1_2', index: 'Page1_2', name: '群组管理' },
-            { type: 'item', level: 3, link: '/Page1_3', index: 'Page1_3', name: '角色管理' },
-            { type: 'item', level: 3, link: '/Page1_4', index: 'Page1_4', name: '组织管理' }
-          ]
-        },
-        {
-          type: 'link-item',
-          index: 'Menu2_3',
-          name: '用户中心',
-          expanded: false,
-          icon: 'user',
-          link: '/Page2_1',
-          children: []
-        },
-        {
-          type: 'link-item',
-          index: 'Menu2_4',
-          name: '财务中心',
-          expanded: false,
-          icon: 'area-chart',
-          link: '/Page3_1',
-          children: []
-        },
-        {
-          type: 'link-item',
-          index: 'Page4_1',
-          name: '客服管理',
-          expanded: false,
-          icon: 'phone',
-          link: '/Page4_1',
-          children: []
-        },
-        {
-          type: 'link-item',
-          index: 'Page4_2',
-          name: '编辑器Demo',
-          expanded: false,
-          icon: 'phone',
-          link: '/Page4_2',
-          children: []
-        }
+      children: [
+        // {
+        //   type: 'link-item',
+        //   index: 'Page0_1',
+        //   name: '总览',
+        //   expanded: false,
+        //   icon: 'appstore-o',
+        //   link: '/Page0_1',
+        //   children: []
+        // }, {
+        //   type: 'group',
+        //   index: 'Menu2_2',
+        //   name: '权限管理',
+        //   expanded: false,
+        //   icon: 'idcard',
+        //   children: [
+        //     { type: 'item', level: 3, link: '/Page1_1', index: 'Page1_1', name: '用户管理' },
+        //     { type: 'item', level: 3, link: '/Page1_2', index: 'Page1_2', name: '群组管理' },
+        //     { type: 'item', level: 3, link: '/Page1_3', index: 'Page1_3', name: '角色管理' },
+        //     { type: 'item', level: 3, link: '/Page1_4', index: 'Page1_4', name: '组织管理' }
+        //   ]
+        // },
+        // {
+        //   type: 'link-item',
+        //   index: 'Menu2_3',
+        //   name: '用户中心',
+        //   expanded: false,
+        //   icon: 'user',
+        //   link: '/Page2_1',
+        //   children: []
+        // },
+        // {
+        //   type: 'link-item',
+        //   index: 'Menu2_4',
+        //   name: '财务中心',
+        //   expanded: false,
+        //   icon: 'area-chart',
+        //   link: '/Page3_1',
+        //   children: []
+        // },
+        // {
+        //   type: 'link-item',
+        //   index: 'Page4_1',
+        //   name: '客服管理',
+        //   expanded: false,
+        //   icon: 'phone',
+        //   link: '/Page4_1',
+        //   children: []
+        // },
+        // {
+        //   type: 'link-item',
+        //   index: 'Page4_2',
+        //   name: '编辑器Demo',
+        //   expanded: false,
+        //   icon: 'phone',
+        //   link: '/Page4_2',
+        //   children: []
+        // }
       ]
     }, {
       type: 'dropdown',

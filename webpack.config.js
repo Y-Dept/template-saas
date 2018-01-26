@@ -43,6 +43,7 @@ module.exports = {
     chunkFilename: process.env.Project + `/${VERSION}/[name].chunk.js`
   },
   devServer: {
+    port: 8080,
     proxy: {
       '/mockjs': {
         target: 'http://rap.jd.com',
@@ -191,7 +192,7 @@ module.exports = {
           loader: 'url-loader',
           options: {
             limit: 10000,
-            name: ((isProd || isTest) ? '/' : '') + process.env.Project + '/images/[hash:8][name].[ext]'
+            name: process.env.Project + '/images/[hash:8][name].[ext]'
           }
         }]
       },
@@ -209,7 +210,7 @@ module.exports = {
           require.resolve('antd-mobile').replace(/warn\.js$/, ''),
           path.resolve(__dirname, 'src/app/images')
         ],
-        use: ['url-loader?limit=10000&name=' + ((isProd || isTest) ? '/' : '') + process.env.Project + '/fonts/[name].[ext]?[hash]']
+        use: ['url-loader?limit=10000&name=' + process.env.Project + '/fonts/[name].[ext]?[hash]']
       }
     ]
   }
@@ -234,10 +235,10 @@ module.exports.plugins = [
   }),
   new HtmlWebpackPlugin({
     filename: process.env.Project + '/index.html',
-    template: './index.template-' + process.env.Project + '.html',
+    template: './index.template-web.html',
     inject: false,
     chunks: ['vendor', 'app'],
-    path: (isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`,
+    path: (isProd || isTest) ? '/' + process.env.Project + '/' : `/dist/${process.env.Project}/`,
     version: VERSION
   }),
   new webpack.NamedModulesPlugin(),

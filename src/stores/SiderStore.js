@@ -42,7 +42,8 @@ const MenuItem = types.model("MenuItem", {
 const SiderStore = types.model("SiderStore", {
     isOpen: types.boolean,
     current: types.string,
-    menuData: types.optional(types.array(MenuItem), [])
+    menuData: types.optional(types.array(MenuItem), []),
+    systemMenusUrl: ''
   })
   .views(self => {
     return {
@@ -122,7 +123,51 @@ const SiderStore = types.model("SiderStore", {
           self.setCurrent(href);
           self.setMenuDataByIndex(true, menu[index].index);
         }
-      }
+      },
+
+      getSystemMenus() {
+        return fetchJsonp(self.systemMenusUrl, {
+            jsonpCallback: 'callback',
+            appId: 'tenant'
+          })
+          .then(response => {
+            return response.json();
+          }).then(self.setSystemMenus).catch(ex => {
+            Notification.error({
+              description: '获取系统菜单信息异常:' + ex,
+              duration: null
+            });
+          });
+      },
+      setSystemMenus(result) {
+        if (result.success) {
+          self.menuData[0].children = result.data.map(menu => {
+            const hasSubMenus = menu.subMenus && menu.subMenus.length;
+
+            return {
+              type: hasSubMenus ? 'group' : 'link-item',
+              index: pascal(menu.urlId),
+              expanded: false,
+              icon: menu.iconName,
+              link: '/' + pascal(menu.urlId),
+              name: menu.name,
+              children: hasSubMenus ? menu.subMenus.map(subMenu => {
+                return {
+                  type: 'item',
+                  index: pascal(subMenu.urlId),
+                  link: '/' + pascal(subMenu.urlId),
+                  name: subMenu.name
+                };
+              }) : []
+            };
+          });
+        } else {
+          Notification.error({
+            description: '获取系统菜单信息错误:' + result.message,
+            duration: null
+          });
+        }
+      },
     }
   });
 
