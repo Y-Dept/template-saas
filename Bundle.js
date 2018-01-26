@@ -16,7 +16,11 @@ class Bundle extends Component {
         //store.common.getCurrentUserInfo()
       ];
       if (isPc) {
-        store.sider.setCurrentMenu();
+        fetchs.push(
+          Promise.all([
+            store.sider.getSystemMenus()
+          ]).then(() => store.sider.setCurrentMenu())
+        );
       }
       Promise.all(fetchs).then(() => {
         if (isPc) {

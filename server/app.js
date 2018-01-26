@@ -26,8 +26,8 @@ app.all('*', function(req, res, next) {
   else next();
 });
 
-const authMenu = require('saas-common/lib/server/routes/authMenu');
-app.use('/', authMenu);
+const authMenuHeader = require('saas-common/lib/server/routes/authMenu');
+app.use('/', authMenuHeader);
 
 const authMenu = require('./routes/authMenu');
 app.use('/', authMenu);
