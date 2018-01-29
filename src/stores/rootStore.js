@@ -75,10 +75,19 @@ const RootStore = types.model("RootStore", {
       {
         type: 'link-item',
         index: 'Page4_2',
-        name: '编辑器Demo',
+        name: '编辑器',
         expanded: false,
         icon:'phone',
         link: '/Page4_2',
+        children: []
+      },
+      {
+        type: 'link-item',
+        index: 'Page4_3',
+        name: 'Form',
+        expanded: false,
+        icon:'phone',
+        link: '/Page4_3',
         children: []
       }
     ]

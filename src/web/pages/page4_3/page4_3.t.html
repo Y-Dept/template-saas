@@ -1,0 +1,64 @@
+<template name="page4_3">
+  <div class="{styles.page4_3}">
+    <div class="{styles.bePageCnt}">
+        <ant-Form onSubmit={handleSubmit} key="{key}">
+            <div class="{styles.itemBox}">
+              <ant-FormItem label="选择视频">
+                <#include name="formParamsEdit" />
+                <#uploadFile>
+                <ant-Upload beforeUpload="{beforeVideoUpload}">
+                  <ant-Button disabled="{btnDisabled}"><i class="fa fa-upload"></i> 选择视频</ant-Button>
+                </ant-Upload>
+                </#uploadFile>
+              </ant-FormItem>
+            </div>
+            <div class="{styles.itemBox}">
+              <ant-FormItem label="视频名称">
+                <#include name="formParamsEdit" />
+                <#name>
+                <ant-Input placeholder="请输入视频名称" disabled="{btnDisabled}" />
+                </#name>
+              </ant-FormItem>
+            </div>
+            <div class="{styles.itemBox}">
+              <ant-FormItem label="视频介绍">
+                <#include name="formParamsEdit" />
+                <#info>
+                <ant-Input type="textarea" placeholder="请输入视频介绍" autosize="{autoSize}" />
+                </#info>
+              </ant-FormItem>
+            </div>
+            <div class="{styles.itemBox}">
+              <ant-FormItem label="视频封面" extra="格式说明：支持JPG、PNG、GIF格式，尺寸不低于160*160像素，大小不超过1M。">
+                <#include name="formParamsEdit" />
+                <#cover>
+                <ant-Upload action={actionUrl} {beforeUpload}>
+                  <ant-Button><i class="fa fa-upload"></i> 上传图片</ant-Button>
+                </ant-Upload>
+                </#cover>
+              </ant-FormItem>
+            </div>
+            <div class="{styles.itemBox} {styles.spec}">
+              <ant-FormItem label=" " colon="{false}">
+                <#include name="formParamsEdit" />
+                <#check>
+                <ant-Checkbox disabled="{btnDisabled}"></ant-Checkbox>
+                </#check>
+                <em onClick="{showProtocol}">同意阅读的上传视频协议</em>
+              </ant-FormItem>
+            </div>
+            <div class="{styles.progress}">
+              <#if {showProgress}>
+              <ant-progress percent="{percent}" />
+              </#if>
+            </div>
+            <div class="{styles.itemSubmit}">
+              <ant-FormItem label=" " colon="{false}">
+                <#include name="formParamsEdit" />
+                <ant-Button htmlType="submit" type="primary" disabled="{btnDisabled}" loading="{btnLoading}">确定上传</ant-Button>
+              </ant-FormItem>
+            </div>
+          </ant-Form>
+    </div>
+  </div>
+</template>

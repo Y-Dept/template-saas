@@ -8,6 +8,7 @@ import loadPage1_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_1/
 import loadPage1_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page1_2/page1_2.js';
 import loadPage4_1 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page4_1/page4_1.js';
 import loadPage4_2 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page4_2/page4_2.js';
+import loadPage4_3 from 'bundle-loader?lazy&name=[name]!./src/web/pages/page4_3/page4_3.js';
 //{importLoadPage}//
 import Header from './src/web/components/header';
 import Sider from './src/web/components/sider';
@@ -20,6 +21,7 @@ const loadBundles = {
   loadPage1_2,
   loadPage4_1,
   loadPage4_2,
+  loadPage4_3,
   //{loadPage}//
 };
 
@@ -103,6 +105,23 @@ const Page4_2 = inject("store")(
   `())
 );
 
+
+/**
+ * 页面4-3
+ */
+const Page4_3 = inject("store")(
+  observer(({ store }) => nj`
+    <${PageWrap}>
+      <${Bundle} load=${loadPage4_3} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Page4_3) => {
+          const Page4_3 = withRouter(_Page4_3)
+          return nj`<${Page4_3}/>`();
+        }}
+      </${Bundle}>
+    </${PageWrap}>
+  `())
+);
+
 //{pageComponent}//
 
 const PageWrap = inject("store")(
@@ -125,6 +144,7 @@ const routes = () => nj`
     <Route exact path='/Page1_2' component=${Page1_2} />
     <Route exact path='/Page4_1' component=${Page4_1} />
     <Route exact path='/Page4_2' component=${Page4_2} />
+    <Route exact path='/Page4_3' component=${Page4_3} />
     <!--//{route}//-->
     <Redirect from='*' to='/'/>
   </router-Switch>
