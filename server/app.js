@@ -26,6 +26,12 @@ app.all('*', function(req, res, next) {
   else next();
 });
 
+const authMenuHeader = require('saas-common/lib/server/routes/authMenu');
+app.use('/', authMenuHeader);
+
+const authMenu = require('./routes/authMenu');
+app.use('/', authMenu);
+
 const page0_1 = require('./routes/page0_1');
 app.use('/page0_1', page0_1);
 
@@ -36,8 +42,9 @@ const page1_2 = require('./routes/page1_2');
 app.use('/page1_2', page1_2);
 
 const page4_1 = require('./routes/page4_1');
-//{pages}//
 app.use('/page4_1', page4_1);
+
+//{pages}//
 
 const { resultData } = require('./common/utils');
 

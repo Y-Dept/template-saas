@@ -1,4 +1,5 @@
 <header class="site-header{store.sider.isOpen ? (' isMenuOpen', '')}">
+  <div class="site-logo"><div class="header-logo">SAAS</div></div>
   <ul class="site-nav">
     <#each {store.sider.menuData}>
       <li key={@index} class="{store.header.current == @index ? 'cur'}" onClick={navChanged(@index)}>{name}</li>
@@ -6,7 +7,7 @@
   </ul>
   <div class="login-wrap middle">
     <a class="link">{store.common.('userInfo').('pin')}</a>
-    <a class="avatar"><img src="{headerPic}" alt=""></a>
-    <a class="link" href={logoutUrl}>注销</a>
+    <a class="avatar"></a>
+    <a class="link">注销</a>
   </div>
 </header>

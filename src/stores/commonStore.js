@@ -1,6 +1,7 @@
-import { types } from "mobx-state-tree"
+import { types, } from "mobx-state-tree"
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import Notification from '../utils/notification';
+import fetchJsonp from 'fetch-jsonp';
 
 export const UserInfo = types.model('UserInfo', {
   pin: types.maybe(types.string),
@@ -10,6 +11,11 @@ export const UserInfo = types.model('UserInfo', {
 export const CommonStore = types.model("CommonStore", {
     userInfo: types.maybe(UserInfo),
   })
+  .volatile(self => ({
+    fetchData,
+    Notification,
+    fetchJsonp
+  }))
   .views(self => {
     return {
       get isDemo() {
@@ -20,7 +26,7 @@ export const CommonStore = types.model("CommonStore", {
   .actions(self => {
     return {
       getCurrentUserInfo() {
-        return fetchData(`${__HOST}/common/getCurrentUserInfo`,
+        return fetchData(`${__HOST}common/getCurrentUserInfo`,
           self.setCurrentUserInfo,
           null, { method: 'post' }).catch((ex) => {
           Notification.error({

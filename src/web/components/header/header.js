@@ -9,15 +9,13 @@ import template from './header.t.html';
 @inject('store')
 @observer
 export default class Header extends Component {
-  logoutUrl = `${__HOST}/common/logout`;
-
   @autobind
   navChanged(index) {
     return e => {
       this.props.store.header.setCurrent(index);
-      if(this.props.store.sider.menuData[index].children[0].children[0]){
+      if (this.props.store.sider.menuData[index].children[0].children[0]) {
         this.props.history.push('/' + this.props.store.sider.menuData[index].children[0].children[0].index);
-      }else{
+      } else {
         this.props.history.push('/' + this.props.store.sider.menuData[index].children[0].index);
       }
     }
@@ -25,8 +23,7 @@ export default class Header extends Component {
 
   render() {
     return template(this.props, this, {
-      styles,
-      headerPic: require('../../images/pic-header.png')
+      styles
     });
   }
 }
