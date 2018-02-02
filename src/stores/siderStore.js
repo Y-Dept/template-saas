@@ -128,9 +128,8 @@ const SiderStore = types.model("SiderStore", {
       },
 
       getSystemMenus() {
-        return fetchJsonp(self.systemMenusUrl, {
-            jsonpCallback: 'callback',
-            appId: 'tenant'
+        return fetchJsonp(`${self.systemMenusUrl}?appId=tenant`, {
+            jsonpCallback: 'callback'
           })
           .then(response => {
             return response.json();
