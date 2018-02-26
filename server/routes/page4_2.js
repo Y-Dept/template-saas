@@ -21,7 +21,7 @@ router.post('/uploadFile', upload.single('file'), function(req, res) {
 
   console.log(req.file);
   Object.assign(ret, resultData, {
-    data: 'http://localhost:8090/uploads/' + req.file.originalname
+    data: 'http://localhost:8089/uploads/' + req.file.originalname
   });
 
   res.send(ret);
