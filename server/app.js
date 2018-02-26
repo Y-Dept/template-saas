@@ -44,6 +44,9 @@ app.use('/page1_2', page1_2);
 const page4_1 = require('./routes/page4_1');
 app.use('/page4_1', page4_1);
 
+const page4_2 = require('./routes/page4_2');
+app.use('/page4_2', page4_2);
+
 //{pages}//
 
 const { resultData } = require('./common/utils');

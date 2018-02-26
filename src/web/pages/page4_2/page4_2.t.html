@@ -2,9 +2,15 @@
   <div class="{styles.page4_2}">
     <div class="{styles.bePageCnt}">
       <div class="{styles.editor}">
-        <reactQuill onChange={handleChange} value={text} modules={toJS(modules)} formats={toJS(formats)} theme="snow" style="height:258px" />
+        <ReactUeditor ueditorPath="{__JSPATH + 'ueditor'}"
+                      :config="{zIndex: 1001}"
+                      value={page4_2.initialContent}
+                      plugins="{['uploadImage', 'insertCode']}"
+                      uploadImage={uploadImage}
+                      onChange={updateEditorContent}
+                      progress={progress} />
       </div>
-      <div>{convertedText}</div>
+      <div :dangerouslySetInnerHTML="{ __html: page4_2.content }" />
     </div>
   </div>
 </template>

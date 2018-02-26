@@ -19,55 +19,37 @@ import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
 import graphic from 'echarts/lib/util/graphic.js'
 import { autobind } from 'core-decorators';
+import '../../components/react-ueditor';
 import styles from './page4_2.m.scss';
 import tmpls from './page4_2.t.html';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-
-registerComponent({'reactQuill': ReactQuill});
-
 
 //页面容器组件
+@registerTmpl('page4_2')
 @inject('store')
 @observer
-@registerTmpl('page4_2')
 export default class page4_2 extends Component {
+  uploadImage = e => {
+    return new Promise((resolve, reject) => {
+      const { store: { page4_2 } } = this.props;
 
-  @observable text;
-  @observable modules = {
-    toolbar: [
-      [{ 'header': [1, 2, false] }],
-      ['bold', 'italic', 'underline','strike', 'blockquote'],
-      [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-      ['link', 'image'],
-      ['clean']
-    ],
-  }
-  @observable formats = [
-    'header',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
-    'link', 'image'
-  ]
-
-  constructor(props) {
-    super(props);
+      const formData = new FormData();
+      formData.append('file', e.target.files[0]);    
+      page4_2.uploadFile(formData).then(imgUrl => resolve(imgUrl));
+    });
   }
 
-  componentDidMount() {
-  }
-
-  @autobind
-  handleChange(value){
-    this.text = value;
+  updateEditorContent = content => {
+    const { store: { page4_2 } } = this.props;
+    page4_2.setContent(content);
   }
 
   render() {
-    const renderHTML = (html) => React.createElement("div", { dangerouslySetInnerHTML: { __html: html } });
+    const { store: { page4_2 } } = this.props;
 
-    return tmpls.page4_2(this.state, this.props, this, {
+    return tmpls.page4_2(this.props, this, {
       styles,
-      convertedText: renderHTML(this.text)
+      page4_2,
+      __JSPATH
     });
   }
 }

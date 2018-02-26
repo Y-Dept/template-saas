@@ -247,11 +247,12 @@ module.exports.plugins = [
     __HOST: (isProd || isTest) ? "''" : "'http://localhost:8089/'",
     'process.env': {
       'NODE_ENV': JSON.stringify(isProd ? 'production' : 'development')
-    }
+    },
+    __JSPATH: JSON.stringify((isProd || isTest) ? '/' + process.env.Project + '/js/' : `/dist/${process.env.Project}/js/`)
   }),
   new CopyWebpackPlugin([{
     context: './src/vendor/',
-    from: '*',
+    from: '**/*',
     to: path.join(__dirname, '/dist/' + process.env.Project + '/js/')
   }]),
   new ExtractTextPlugin({ filename: process.env.Project + `/css/${VERSION}/[name].css`, allChunks: true }),

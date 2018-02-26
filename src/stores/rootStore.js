@@ -6,6 +6,7 @@ import Page0_1Store from "./pages/page0_1Store";
 import Page1_1Store from "./pages/page1_1Store";
 import Page1_2Store from "./pages/page1_2Store";
 import Page4_1Store from "./pages/page4_1Store";
+import Page4_2Store from "./pages/page4_2Store";
 //{importStore}//
 
 const RootStore = types.model("RootStore", {
@@ -120,6 +121,7 @@ const RootStore = types.model("RootStore", {
   page1_1: types.optional(Page1_1Store, {}),
   page1_2: types.optional(Page1_2Store, {}),
   page4_1: types.optional(Page4_1Store, {}),
+  page4_2: types.optional(Page4_2Store, {}),
   //{pageStore}//
 });
 
