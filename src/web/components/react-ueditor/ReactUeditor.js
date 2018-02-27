@@ -169,6 +169,10 @@ class ReactUeditor extends React.Component {
   uploadImage = e => {
     let {uploadImage} = this.props
     if (uploadImage) {
+      if (e.target.files.length <= 0) {
+        return;
+      }
+
       let promise = uploadImage(e)
       if (!!promise && typeof promise.then == 'function') {
         promise.then(imageUrl => {
