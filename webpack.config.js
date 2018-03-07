@@ -15,6 +15,7 @@ const iconUrl = {
   "icon-url": JSON.stringify('../../../../vic-common/resources/libs/iconfont/iconfont')
 };
 const modifyVars = Object.assign({}, iconUrl, antdTheme);
+const { commonDomain } = require('saas-common');
 
 const webpackExternals = {
   'saas-common': 'SaasCommon'
@@ -248,7 +249,8 @@ module.exports.plugins = [
     'process.env': {
       'NODE_ENV': JSON.stringify(isProd ? 'production' : 'development')
     },
-    __JSPATH: JSON.stringify((isProd || isTest) ? '/' + process.env.Project + '/js/' : `/dist/${process.env.Project}/js/`)
+    __JSPATH: JSON.stringify((isProd || isTest) ? '/' + process.env.Project + '/js/' : `/dist/${process.env.Project}/js/`),
+    __COMMONHOST: (isProd || isTest) ? `'${commonDomain}'` : "'http://localhost:8089/'",
   }),
   new CopyWebpackPlugin([{
     context: './src/vendor/',

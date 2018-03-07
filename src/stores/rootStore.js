@@ -14,13 +14,13 @@ const RootStore = types.model("RootStore", {
 
   header: types.optional(HeaderStore, {
     current: 0,
-    workbenchMenusUrl: `${__HOST}${workbenchMenusUrl}`
+    workbenchMenusUrl: `${__COMMONHOST}${workbenchMenusUrl}`
   }),
 
   sider: types.optional(SiderStore, {
     isOpen: false,
     current: 'Page1_1',
-    systemMenusUrl: `${__HOST}${systemMenusUrl}`,
+    systemMenusUrl: `${__COMMONHOST}${systemMenusUrl}`,
     menuData: [{
       type: 'group',
       index: 'Menu1_1',
