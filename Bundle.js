@@ -13,7 +13,7 @@ class Bundle extends Component {
     const { store, isPc, loadBundles } = this.props;
     if (store && !store.sider.menuData[0].children.length) { //获取用户登录信息
       const fetchs = [
-        //store.common.getCurrentUserInfo()
+        store.common.getCurrentUserInfo()
       ];
       if (isPc) {
         fetchs.push(

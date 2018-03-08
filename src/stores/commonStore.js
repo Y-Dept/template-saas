@@ -16,19 +16,15 @@ export const CommonStore = types.model("CommonStore", {
     Notification,
     fetchJsonp
   }))
-  .views(self => {
-    return {
-      get isDemo() {
-        return self.userInfo.pin && self.userInfo.pin.trim().toLowerCase() === 'jd_653e751552511';
-      }
-    }
-  })
   .actions(self => {
     return {
       getCurrentUserInfo() {
-        return fetchData(`${__HOST}common/getCurrentUserInfo`,
-          self.setCurrentUserInfo,
-          null, { method: 'post' }).catch((ex) => {
+        return fetchJsonp(`${__COMMONHOST}authManagement/common/getCurrentUserInfo`, {
+          jsonpCallback: 'callback'
+        })
+        .then(response => {
+          return response.json();
+        }).then(self.setCurrentUserInfo).catch(ex => {
           Notification.error({
             description: '获取用户信息异常:' + ex,
             duration: null

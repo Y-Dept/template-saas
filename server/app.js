@@ -32,6 +32,9 @@ app.use('/', authMenuHeader);
 const authMenu = require('./routes/authMenu');
 app.use('/', authMenu);
 
+const common = require('./routes/common');
+app.use('/authManagement/common', common);
+
 const page0_1 = require('./routes/page0_1');
 app.use('/page0_1', page0_1);
 

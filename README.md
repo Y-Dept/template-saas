@@ -15,7 +15,7 @@ npm run build-web-test  #构建生产代码到dist目录，使用测试环境配
 
 ## 如何接入公共接口
 
-> 由此模板新创建的项目已经自动接入了，此文档的`前3步`是针对过去创建的老项目：
+> 由此模板新创建的项目已经自动接入了，此文档的`前5步`是针对过去创建的老项目：
 
 1. 将`saas-common`包升级至`0.1.22`版以上：
 
@@ -68,7 +68,43 @@ const RootStore = types.model("RootStore", {
 ...
 ```
 
-4. 将siderStore.js中的`getSystemMenus`接口的`appid`参数改为SAAS子应用的`appid`：
+4. 添加获取用户信息接口
+
+(1)在`server/common/routes`目录下创建`common.js`文件，从[这里](https://github.com/Y-Dept/template-saas/blob/master/server/routes/common.js)复制过来就可以。
+
+(2)在`server/app.js`文件中添加：
+
+```js
+...
+const common = require('./routes/common');
+app.use('/authManagement/common', common);
+...
+```
+
+(3)更新`src/stores/commonStore.js`文件，从[这里](https://github.com/Y-Dept/template-saas/blob/master/src/stores/commonStore.js)覆盖过来就可以。
+
+5. 添加注销接口，修改`app-web.js`文件，给`HeaderWithRouter`组件添加`logoutUrl`属性：
+
+```js
+const renderApp = appRoutes => {
+  ReactDOM.render(nj `
+    <${LocaleProvider} locale=${zhCN}>
+      <mobx-Provider store=${rootStore}>
+        <HashRouter>
+          <div id="outer-container">
+            <${SiderWithRouter}/>
+            <${HeaderWithRouter} logoutUrl=${`${__COMMONHOST}authManagement/common/logout`}/>
+            ${appRoutes()}
+          </div>
+        </HashRouter>
+      </mobx-Provider>
+    </${LocaleProvider}>` (),
+    document.getElementById('app')
+  );
+};
+```
+
+6. 将siderStore.js中的`getSystemMenus`接口的`appid`参数改为SAAS子应用的`appid`：
 
 ```js
 ...

@@ -61,7 +61,7 @@ const renderApp = appRoutes => {
         <HashRouter>
           <div id="outer-container">
             <${SiderWithRouter}/>
-            <${HeaderWithRouter}/>
+            <${HeaderWithRouter} logoutUrl=${`${__COMMONHOST}authManagement/common/logout`}/>
             ${appRoutes()}
           </div>
         </HashRouter>
