@@ -83,6 +83,21 @@ app.use('/authManagement/common', common);
 
 (3)更新`src/stores/commonStore.js`文件，从[这里](https://github.com/Y-Dept/template-saas/blob/master/src/stores/commonStore.js)覆盖过来就可以。
 
+(4)在`Bundle.js`中取消掉注释：
+
+```js
+...
+componentWillMount() {
+  const { store, isPc, loadBundles } = this.props;
+  if (store && !store.sider.menuData[0].children.length) {
+    const fetchs = [
+      store.common.getCurrentUserInfo()  //取消这里的注释
+    ];
+  }
+}
+...
+```
+
 5. 添加注销接口，修改`app-web.js`文件，给`HeaderWithRouter`组件添加`logoutUrl`属性：
 
 ```js
