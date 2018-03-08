@@ -15,7 +15,7 @@ npm run build-web-test  #构建生产代码到dist目录，使用测试环境配
 
 ## 如何接入公共接口
 
-> 由此模板新创建的项目已经自动接入了，此文档是针对过去创建的老项目：
+> 由此模板新创建的项目已经自动接入了，此文档的`前3步`是针对过去创建的老项目：
 
 1. 将`saas-common`包升级至`0.1.22`版以上：
 
@@ -65,5 +65,18 @@ const RootStore = types.model("RootStore", {
   }),
   ...
 });
+...
+```
+
+4. 将siderStore.js中的`getSystemMenus`接口的`appid`参数改为SAAS子应用的`appid`：
+
+```js
+...
+getSystemMenus() {
+  return fetchJsonp(`${self.systemMenusUrl}?appId=tenant`, {  //把tenant改为SAAS子应用的appid
+      jsonpCallback: 'callback'
+    })
+    ...
+},
 ...
 ```
