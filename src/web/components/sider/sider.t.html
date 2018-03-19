@@ -1,6 +1,6 @@
 <template name="menuCnt">
   <#if {item.type == 'item'}>
-    <router-Link key={item.index} to={item.link} onClick={selectMenu(item.index)} class="menu-item {store.sider.current == item.index ? ('cur', '')}">
+    <router-Link key={item.index} to={item.link} onClick={selectMenu(item.index)} class="menu-item {store.sider.current.toLowerCase() == item.index.toLowerCase() ? ('cur', '')}">
       {item.name}
     </router-Link>
   </#if>
@@ -13,7 +13,7 @@
     </div>
   </#if>
   <#if {item.type == 'link-item'}>
-    <router-Link key={item.index} to={item.link} onClick={selectMenu(item.index)} class="menu-link-item {store.sider.current == item.index ? ('cur', '')}">
+    <router-Link key={item.index} to={item.link} onClick={selectMenu(item.index)} class="menu-link-item {store.sider.current.toLowerCase() == item.index.toLowerCase() ? ('cur', '')}">
         <ant-Icon type="{item.icon}" style="margin-right:10px;" />{item.name}
     </router-Link>
   </#if>

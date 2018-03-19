@@ -47,6 +47,7 @@ class ReactUeditor extends React.Component {
 
   componentDidMount() {
     let {ueditorPath} = this.props
+    $('div.edui-default').remove();
 
     this.createScript(ueditorPath + '/ueditor.config.js').then(() => {
       this.createScript(ueditorPath + '/ueditor.all.min.js').then(() => {
