@@ -131,3 +131,7 @@ getSystemMenus() {
 },
 ...
 ```
+
+## 如何更新本地项目模板文件
+
+使用`nornj-cli`的`nj ap`等命令时会从项目目录的`templates`文件夹获取各文件的模板，如需更新只需将[此目录](https://github.com/Y-Dept/template-saas/tree/master/templates)内的文件覆盖到本地项目目录的`templates`文件夹即可。
