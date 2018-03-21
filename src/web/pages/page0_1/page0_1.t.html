@@ -1,22 +1,24 @@
 <template name="container">
   <div class="{styles.page0_1}">
-    <h2>{intl('roleManage')}0_1</h2>
-    <div class="{styles.handlerBox}">
-      <span class="{styles.lable}">{intl('roleName')}</span>
-      <ant-input class="{styles.input}" value="{inputRole}" onChange={onInputRole}/>
-      <ant-Button class="btn" onClick={onSearch}>查询</ant-Button>
-      <ant-Button class="btn" onClick={onAddRole}>新增</ant-Button>
-      <ant-Button class="btn" onClick={onDeleteRole}>删除</ant-Button>
-    </div>
-
-    <ant-Table rowSelection={rowSelection}
-               columns={toJS(tableColumns)}
-               dataSource={toJS(tableData)}
-               bordered />
-
-    <ModalFormPage0_1 tabName="增加角色" />
-    <ModalFormPage0_1 tabName="编辑角色" />
-    <ModalDetailPage0_1 />
+    <section class="areaPanel">
+      <div class="{styles.handlerBox}">
+        <h2>{intl('roleManage')}0_1</h2>
+        <span class="{styles.lable}">{intl('roleName')}</span>
+        <ant-input class="{styles.input}" value="{inputRole}" onChange={onInputRole}/>
+        <ant-Button class="btn" onClick={onSearch}>查询</ant-Button>
+        <ant-Button class="btn" onClick={onAddRole}>新增</ant-Button>
+        <ant-Button class="btn" onClick={onDeleteRole}>删除</ant-Button>
+      </div>
+  
+      <ant-Table rowSelection={rowSelection}
+                 columns={toJS(tableColumns)}
+                 dataSource={toJS(tableData)}
+      />
+  
+      <ModalFormPage0_1 tabName="增加角色" />
+      <ModalFormPage0_1 tabName="编辑角色" />
+      <ModalDetailPage0_1 />
+    </section>
   </div>
 </template>
 

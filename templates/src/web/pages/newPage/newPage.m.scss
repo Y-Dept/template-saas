@@ -1,6 +1,12 @@
 .#{pageName}# {
-  background-color: #fff;
-  padding: 100px 40px 40px;
+  background-color: #ECEDF1;
+  padding: 75px 15px 15px;
+
+  :global {
+    areaPanel {
+      padding: 0;
+    }
+  }
 
   h2 {
     margin-bottom: 25px;
@@ -9,8 +15,7 @@
 
   .handlerBox {
     margin-bottom: 20px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
+    padding: 15px 15px 0 15px;
   }
 
   .handlerBox:after {
