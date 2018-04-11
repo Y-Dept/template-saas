@@ -157,7 +157,8 @@ const SiderStore = types.model("SiderStore", {
                   type: 'item',
                   index: pascal(subMenu.urlId),
                   link: '/' + pascal(subMenu.urlId),
-                  name: subMenu.name
+                  name: subMenu.name,
+                  level: 3
                 };
               }) : []
             };
