@@ -135,3 +135,42 @@ getSystemMenus() {
 ## 如何更新本地项目模板文件
 
 使用`nornj-cli`的`nj ap`等命令时会从项目目录的`templates`文件夹获取各文件的模板，如需更新只需将[此目录](https://github.com/Y-Dept/template-saas/tree/master/templates)内的文件覆盖到本地项目目录的`templates`文件夹即可。
+
+## 如何修改页面头部菜单链接
+
+1. 将`saas-common`包升级至`0.1.24`版以上：
+
+```sh
+npm i saas-common@latest --registry http://192.168.151.68:8001
+```
+
+2. 修改`src/stores/rootStore.js`文件：
+
+```js
+...
+sider: types.optional(SiderStore, {
+  isOpen: false,
+  current: 'Page1_1',
+  systemMenusUrl: `${__COMMONHOST}${systemMenusUrl}`,
+  menuData: [{
+    type: 'group',
+    index: 'Menu1_1',
+    name: '控制台',               //头部菜单文字在这里修改
+    link: 'http://www.xxx.com',  //在此处添加link参数为想要跳转的链接即可
+    expanded: false,
+    ...
+  }, {
+    type: 'dropdown',
+    index: 'Workbench',
+    name: '工作台',
+    expanded: false,
+  }, {
+    type: 'group',
+    index: 'Menu1_2',
+    name: '产品服务',             //头部菜单文字在这里修改
+    link: 'http://www.xxx.com',  //在此处添加link参数为想要跳转的链接即可
+    expanded: false,
+    ...
+  }]
+}),
+```
