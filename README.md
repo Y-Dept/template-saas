@@ -20,7 +20,7 @@ npm run build-web-test  #构建生产代码到dist目录，使用测试环境配
 1. 将`saas-common`包升级至`0.1.22`版以上：
 
 ```sh
-npm i saas-common@latest --registry http://192.168.151.68:8001
+npm i saas-common@latest --registry http://ynpm.jd.com:8001
 ```
 
 2. webpack.config.js文件添加`__COMMONHOST`全局变量：
@@ -141,7 +141,7 @@ getSystemMenus() {
 1. 将`saas-common`包升级至`0.1.24`版以上：
 
 ```sh
-npm i saas-common@latest --registry http://192.168.151.68:8001
+npm i saas-common@latest --registry http://ynpm.jd.com:8001
 ```
 
 2. 修改`src/stores/rootStore.js`文件：

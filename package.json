@@ -135,6 +135,6 @@
   "njCliConfig": {
     "templateType": "single-page",
     "privateLib": "vic-common saas-common saas-theme",
-    "privateNpmUrl": "http://192.168.151.68:8001"
+    "privateNpmUrl": "http://ynpm.jd.com:8001"
   }
 }
