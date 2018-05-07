@@ -177,7 +177,7 @@ sider: types.optional(SiderStore, {
 
 ## 如何将公共资源切换为从cdn获取
 
-> cdn的测试环境主要配置host，[具体请见这里](http://source.jd.com/app/y-dept-saas-common#%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83cdn%E8%8E%B7%E5%8F%96%E5%85%AC%E5%85%B1%E8%B5%84%E6%BA%90%E6%97%B6%E9%9C%80%E9%85%8D%E7%BD%AE%E7%9A%84host)。
+> cdn的测试环境需要配置host，[具体请见这里](http://source.jd.com/app/y-dept-saas-common#%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83cdn%E8%8E%B7%E5%8F%96%E5%85%AC%E5%85%B1%E8%B5%84%E6%BA%90%E6%97%B6%E9%9C%80%E9%85%8D%E7%BD%AE%E7%9A%84host)。
 
 1. 将`saas-common`包升级至`0.1.28`版以上：
 
