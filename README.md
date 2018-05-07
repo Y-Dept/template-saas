@@ -174,3 +174,80 @@ sider: types.optional(SiderStore, {
   }]
 }),
 ```
+
+## 如何将公共资源切换为从cdn获取
+
+> cdn的测试环境主要配置host，[具体请见这里](http://source.jd.com/app/y-dept-saas-common#%E4%BD%BF%E7%94%A8%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83cdn%E8%8E%B7%E5%8F%96%E5%85%AC%E5%85%B1%E8%B5%84%E6%BA%90%E6%97%B6%E9%9C%80%E9%85%8D%E7%BD%AE%E7%9A%84host)。
+
+1. 将`saas-common`包升级至`0.1.28`版以上：
+
+```sh
+npm i saas-common@latest --registry http://ynpm.jd.com:8001
+```
+
+2. 修改`webpack.config.js`文件，具体步骤请看下面代码中的注释：
+
+```js
+...
+const iconUrl = {
+  "icon-url": JSON.stringify('../../../../vic-common/resources/libs/iconfont/iconfont')
+};
+const modifyVars = Object.assign({}, iconUrl, antdTheme);
+const { commonDomain, commonCdnDomain } = require('saas-common');  //(1)增加导出commonCdnDomain变量
+const useCdn = true;                                               //(2)增加是否使用cdn标识
+
+const webpackExternals = {
+  'saas-common': 'SaasCommon'
+};
+
+module.exports = {
+  ...
+}
+
+module.exports.plugins = [
+  ...
+  new HtmlWebpackPlugin({
+    filename: process.env.Project + '/index.html',
+    template: './index.template-' + process.env.Project + '.html',
+    inject: false,
+    chunks: ['vendor', 'app'],
+    path: (isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`,
+    //(3)增加commonPath变量
+    commonPath: useCdn ? commonCdnDomain : ((isProd || isTest) ? process.env.Project + '/' : `/dist/${process.env.Project}/`),
+    version: VERSION
+  }),
+  ...
+]
+```
+
+3. 修改`index.template-web.html`文件，具体步骤请看下面代码中的注释：
+
+```html
+<#with {{ htmlWebpackPlugin.options }}>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Y事业部-SAAS平台</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,initial-scale=1.0" />-->
+  <script src="{{ path }}js/es6-promise.auto.min.js"></script>
+  <link href="{{ path }}css/{{ version }}/app.css" rel="stylesheet">
+  <link href="{{ commonPath }}saas-common/saas-common.min.css" rel="stylesheet">  <!--(1)将path改为commonPath-->
+  <link href="{{ commonPath }}saas-theme.min.css" rel="stylesheet">               <!--(2)将path改为commonPath-->
+</head>
+<body>
+  <div id="app" style="position:relative"></div>
+  <script src="{{ path }}js/console-polyfill.js"></script>
+  <script src="{{ path }}js/jquery-3.1.1.min.js"></script>
+  <script src="{{ path }}js/babelHelpers.min.js"></script>
+  <script type="text/javascript" src="{{ path + version }}/vendors.min.js"></script>
+  <script type="text/javascript" src="{{ commonPath }}saas-common/saas-common.min.js"></script>  <!--(3)将path改为commonPath-->
+  <script type="text/javascript" src="{{ path + version }}/app.js"></script>
+</body>
+</html>
+</#with>
+```
