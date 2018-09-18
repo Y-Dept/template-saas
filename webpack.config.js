@@ -16,7 +16,7 @@ const iconUrl = {
 };
 const modifyVars = Object.assign({}, iconUrl, antdTheme);
 const { commonDomain, commonCdnDomain } = require('saas-common');
-const useCdn = true;
+const useCdn = false;
 
 const webpackExternals = {
   'saas-common': 'SaasCommon'

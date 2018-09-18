@@ -78,7 +78,7 @@
     "react-hot-loader": "^3.1.2",
     "redux-devtools": "^3.3.2",
     "saas-common": "^0.1.28",
-    "saas-theme": "^0.1.18",
+    "saas-theme": "^0.2.0",
     "sass-loader": "^6.0.6",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.13.0",
