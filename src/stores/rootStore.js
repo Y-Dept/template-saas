@@ -1,6 +1,6 @@
 import { types } from "mobx-state-tree";
 import { CommonStore } from "./commonStore";
-import { HeaderStore, workbenchMenusUrl, systemMenusUrl } from 'saas-common';
+import { HeaderStore, workbenchMenusUrl, systemMenusUrl, userTenantListUrl, switchTenantUrl } from 'saas-common';
 import SiderStore from "./siderStore";
 import Page0_1Store from "./pages/page0_1Store";
 import Page1_1Store from "./pages/page1_1Store";
@@ -14,7 +14,9 @@ const RootStore = types.model("RootStore", {
 
   header: types.optional(HeaderStore, {
     current: 0,
-    workbenchMenusUrl: `${__COMMONHOST}${workbenchMenusUrl}`
+    workbenchMenusUrl: `${__COMMONHOST}${workbenchMenusUrl}`,
+    userTenantListUrl: `${__COMMONHOST}${userTenantListUrl}`,
+    switchTenantUrl: `${__COMMONHOST}${switchTenantUrl}`
   }),
 
   sider: types.optional(SiderStore, {
